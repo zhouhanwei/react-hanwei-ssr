@@ -6,13 +6,17 @@ import {
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Router from "./webRouter/index"
+import Router from "./webRouter/index";
+import { Provider } from 'react-redux' // 配合使用redux
+import { getClientStore } from '../src/store/index' // 导入store
 
 ReactDOM.hydrate(
   <React.StrictMode>
-      <BrowserRouter>
-          <Router/>
-      </BrowserRouter>
+      <Provider store={getClientStore()}>
+          <BrowserRouter>
+              <Router/>
+          </BrowserRouter>
+      </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

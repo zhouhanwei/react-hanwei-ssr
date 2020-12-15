@@ -9,8 +9,10 @@ import { StaticRouter } from "react-router-dom";
 import Routers from '../src/webRouter/index';
 // import App from '../src/App'
 // import App2 from '../src/App2'
+import { Provider } from 'react-redux'
+import { getServerStore } from '../src/store'
 
-const PORT = 8080
+const PORT = 8089
 const app = express()
 
 
@@ -21,12 +23,15 @@ app.use(express.static(path.resolve(__dirname, '../src')))
 app.use((req, res, next) => {
     console.log(req.url)
     const context = {}
+    let store = getServerStore()
     const frontComponents = ReactDOMServer.renderToString(
-        <StaticRouter
-            location={req.url}
-            context={context}>
-            <Routers/>
-        </StaticRouter>
+        <Provider store={store}>
+            <StaticRouter
+                location={req.url}
+                context={context}>
+                <Routers/>
+            </StaticRouter>
+        </Provider>
     )
     fs.readFile(path.resolve('./build/index.html'), 'utf8', (err, data) => {
         if (err) {
