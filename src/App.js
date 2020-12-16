@@ -16,7 +16,11 @@ class App extends React.Component {
     console.log(123);
   }
 
-  render() {
+  componentWillReceiveProps(nextProps, nextContext) {
+      //alert(nextProps.number)
+  }
+
+    render() {
     return (
         <div className="App">
           <button onClick={this.alertText}>

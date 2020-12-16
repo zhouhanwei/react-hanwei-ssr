@@ -8,6 +8,10 @@ export default  [
         component: Main,
         routes: [
             {
+                path: "/", // 列表
+                component: App,
+            },
+            {
                 path: "/app", // 列表
                 component: App,
             },

@@ -20,6 +20,7 @@ class App2 extends React.Component {
           <button onClick={this.alertText}>
             App2222222222222222222
               <p>{this.state.number}{this.props.number}</p>
+              <button onClick={() => this.props.increment(110)}>+</button>
           </button>
         </div>
     );

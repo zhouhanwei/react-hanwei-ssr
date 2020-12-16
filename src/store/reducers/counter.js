@@ -7,7 +7,6 @@ let initState = {
 export default (state = initState, action) => {
     switch (action.type) {
         case types.INCREMENT:
-            alert(action.number)
             let {number} = state;
             return {number: number + 1}
         default:
