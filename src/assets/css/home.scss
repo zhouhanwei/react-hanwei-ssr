@@ -1,0 +1,15 @@
+.hw-home-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  .hw-home-main {
+    text-align: center;
+  }
+  .hw-logo {
+    height: 50px;
+  }
+  .hw-home-btn {
+    margin-top: 22px;
+  }
+}

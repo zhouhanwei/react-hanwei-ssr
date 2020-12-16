@@ -16,11 +16,12 @@ const PORT = 8089
 const app = express()
 
 
-app.use(express.static(path.resolve(__dirname, '../build')))
+app.use(express.static(path.resolve(__dirname, '../build'), {index:""}))
 app.use(express.static(path.resolve(__dirname, '../src')))
 
 //设置build以后的文件路径 项目上线用
 app.use((req, res, next) => {
+    console.log(1)
     console.log(req.url)
     const context = {}
     let store = getServerStore()
@@ -40,8 +41,8 @@ app.use((req, res, next) => {
         }
         return res.send(
             data.replace(
-                '<div id="root"></div>',
-                `<div id="root">${frontComponents}</div>`
+                '{{root}}',
+                `${frontComponents}`
             )
         )
     })

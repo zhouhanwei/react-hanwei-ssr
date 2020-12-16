@@ -1,6 +1,9 @@
 import Main from "../page/layout/Main";
 import App from "../App";
 import App2 from "../App2";
+import Home from "../page/home";
+import NewList from "../page/newList";
+import NewListDetails from "../page/newListDetails";
 
 export default  [
     {
@@ -9,15 +12,15 @@ export default  [
         routes: [
             {
                 path: "/", // 列表
-                component: App,
+                component: Home,
             },
             {
-                path: "/app", // 列表
-                component: App,
+                path: "/new_list", // 列表
+                component: NewList,
             },
             {
-                path: "/app2", // 列表
-                component: App2,
+                path: "/new_list_details", // 列表
+                component: NewListDetails,
             },
         ]
     }
