@@ -1,5 +1,4 @@
 import React from "react";
-import logoImage from "../../assets/images/logo.png";
 import {Link} from "react-router-dom";
 import {Menu, Dropdown} from "antd";
 import {MenuOutlined} from "@ant-design/icons";

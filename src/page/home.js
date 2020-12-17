@@ -3,10 +3,7 @@
  */
 import React from "react";
 import logoImage from "../assets/images/logo.png";
-import { Button, Tooltip } from 'antd';
-import { RightCircleOutlined } from '@ant-design/icons';
 import "../assets/css/home.scss";
-
 
 class Home extends React.Component {
     constructor(props) {

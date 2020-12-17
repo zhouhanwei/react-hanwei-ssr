@@ -15,17 +15,15 @@ import { getServerStore } from '../src/store'
 const PORT = 8089
 const app = express()
 
-
-app.use(express.static(path.resolve(__dirname, '../build'), {index:""}))
+app.use(express.static(path.resolve(__dirname, '../build'), {index:"root"}))
 app.use(express.static(path.resolve(__dirname, '../src')))
 
 //设置build以后的文件路径 项目上线用
 app.use((req, res, next) => {
-    console.log(1)
     console.log(req.url)
     const context = {}
     let store = getServerStore()
-    const frontComponents = ReactDOMServer.renderToString(
+    let HTML = ReactDOMServer.renderToString(
         <Provider store={store}>
             <StaticRouter
                 location={req.url}
@@ -42,7 +40,7 @@ app.use((req, res, next) => {
         return res.send(
             data.replace(
                 '{{root}}',
-                `${frontComponents}`
+                `${HTML}`
             )
         )
     })

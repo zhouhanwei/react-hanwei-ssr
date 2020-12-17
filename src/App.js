@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import { connect } from "react-redux"
 import actions from './store/actions/counter'
 import './App.css';

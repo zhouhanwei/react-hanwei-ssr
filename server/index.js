@@ -5,4 +5,9 @@ require('@babel/register')({
     presets: ['@babel/preset-env', '@babel/preset-react']
 })
 
-require('./server')
+require("asset-require-hook")({
+    extensions: ["svg", "jpeg", "jpg", "png", "gif"],
+    name: '/static/media/[name].[ext]',
+});
+
+require('./server');

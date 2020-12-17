@@ -4,6 +4,7 @@
 import React from "react";
 import { List, Avatar, Space } from 'antd';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
+import logoImage from "../assets/images/logo.png";
 
 const listData = [];
 for (let i = 0; i < 23; i++) {
@@ -37,6 +38,7 @@ class NewList extends React.Component {
     render() {
         return (
             <div style={{width: "600px", margin: "0 auto", backgroundColor: "rgba(255, 255, 255, 1)", padding: "12px"}}>
+                <img src={logoImage}/>
                 <List
                     itemLayout="vertical"
                     size="large"

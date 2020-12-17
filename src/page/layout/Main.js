@@ -1,8 +1,6 @@
 import React from 'react';
 import {Layout, Menu} from "antd";
 import {Route, Link, withRouter} from "react-router-dom";
-// import logoImage from "../../assets/images/logo192.png";
-import logoImage from "../../assets/images/logo.png";
 import Head from "./Head";
 const {Content, Footer, Header } = Layout;
 
@@ -34,18 +32,16 @@ class Main extends React.Component {
     render() {
         const {routes} = this.props;
         return (
-            <div className='main-layout'>
-                <div>
-                    <Head/>
-                    <Link to="/">首页</Link>
-                    <Link to="/new_list">资讯</Link>
-                    <Link to="/">首页</Link>
-                    <Child>
-                        {routes ? routes.map((route, i) => (
-                            <RouteWithSubRoutes key={i} {...route} />
-                        )) : null}
-                    </Child>
-                </div>
+            <div className='container'>
+                <Head/>
+                <Link to="/">首页</Link>
+                <Link to="/new_list">资讯</Link>
+                <Link to="/">首页</Link>
+                <Child>
+                    {routes ? routes.map((route, i) => (
+                        <RouteWithSubRoutes key={i} {...route} />
+                    )) : null}
+                </Child>
             </div>
         );
     }
