@@ -1,34 +1,28 @@
 /* craco.config.js */
-module.exports = {
-    // ...
-    reactScriptsVersion: "react-scripts" /* (default value) */,
-    plugins: [
-        {
-            plugin: {
-                overrideCracoConfig: ({ cracoConfig, pluginOptions, context: { env, paths } }) => {
 
-                    return cracoConfig;
-                },
-                overrideWebpackConfig: ({ webpackConfig, cracoConfig, pluginOptions, context: { env, paths } }) => {
-                    webpackConfig.module.rules = [...webpackConfig.module.rules, {
-                        test: /\.(png|jpg|gif)$/,
-                        use: [
-                            {
-                                loader: 'url-loader',
-                                options: {
-                                    limit: 10000,
-                                    encoding: false,
-                                    esModule: false,
-                                    name: 'static/media/[name].[ext]',
-                                    publicPath: "./",
-                                }
-                            }
-                        ]
-                    }]
-                    return webpackConfig;
-                },
-            },
-            options: {}
-        }
-    ]
+const CopyPlugin = require("copy-webpack-plugin");
+const path = require("path");
+
+module.exports = {
+    webpack: {
+        configure: (webpackConfig, { env, paths }) => {
+            webpackConfig.module.rules.forEach(d => {
+                d.oneOf &&
+                d.oneOf.forEach(e => {
+                    if (e && e.options && e.options.name) {
+                        e.options.name = e.options.name.replace('[hash:8].', '');
+                    }
+                });
+            });
+            return webpackConfig;
+        },
+        plugins: [
+            new CopyPlugin([
+                {
+                    from: path.resolve(__dirname, 'src/assets/mp3'),
+                    to: path.resolve(__dirname, 'build/static/mp3')
+                }
+            ]),
+        ],
+    }
 };

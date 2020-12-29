@@ -1,0 +1,114 @@
+.hw-news {
+  .ant-timeline-item-label {
+    color: #fff!important;
+    span {
+      margin: 0 4px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+  .hw-news-dl {
+    cursor: pointer;
+    .hw-news-img {
+      border-top-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      width: 120px;
+    }
+    dd {
+      h3 {
+        margin: 12px 0;
+        color: #fff;
+      }
+      p {
+        color: #ccc;
+      }
+    }
+  }
+
+  .ant-timeline-item-left {
+    .hw-news-dl:hover {
+      .hw-news-img-animate {
+        animation: intalic-down 0.1s  linear 0s 1 alternate forwards;
+        -moz-animation: intalic-down 0.1s  linear 0s 1 alternate forwards;	/* Firefox */
+        -webkit-animation: intalic-down 0.1s  linear 0s 1 alternate forwards;	/* Safari 和 Chrome */
+        -o-animation: intalic-down 0.1s  linear 0s 1 alternate forwards;	/* Opera */
+      }
+      .hw-news-title-animate {
+        animation: intalic-up 0.1s  linear 0s 1 alternate forwards;
+        -moz-animation: intalic-up 0.1s  linear 0s 1 alternate forwards;	/* Firefox */
+        -webkit-animation: intalic-up 0.1s  linear 0s 1 alternate forwards;	/* Safari 和 Chrome */
+        -o-animation: intalic-up 0.1s  linear 0s 1 alternate forwards;	/* Opera */
+      }
+    }
+  }
+
+  .ant-timeline-item-right {
+    .hw-news-dl:hover {
+      .hw-news-img-animate {
+        animation: intalic-down 0.1s  linear 0s 1 alternate forwards;
+        -moz-animation: intalic-down 0.1s  linear 0s 1 alternate forwards;	/* Firefox */
+        -webkit-animation: intalic-down 0.1s  linear 0s 1 alternate forwards;	/* Safari 和 Chrome */
+        -o-animation: intalic-down 0.1s  linear 0s 1 alternate forwards;	/* Opera */
+      }
+      .hw-news-title-animate {
+        animation: intalic-right-up 0.1s  linear 0s 1 alternate forwards;
+        -moz-animation: intalic-right-up 0.1s  linear 0s 1 alternate forwards;	/* Firefox */
+        -webkit-animation: intalic-right-up 0.1s  linear 0s 1 alternate forwards;	/* Safari 和 Chrome */
+        -o-animation: intalic-right-up 0.1s  linear 0s 1 alternate forwards;	/* Opera */
+      }
+    }
+  }
+
+  //ul li:nth-child(odd){
+  //  background-color: green;
+  //}
+  ///*偶数*/
+  //ul li:nth-child(even){
+  //  background-color: red;
+  //}
+
+  @keyframes intalic-down {
+    0%   {transform: rotate(0deg)}
+    100% {transform: rotate(10deg)}
+  }
+  @keyframes intalic-up {
+     0%   {transform: rotate(0deg)}
+     100% {transform: rotate(-5deg)}
+   }
+  @keyframes intalic-right-up {
+    0%   {transform: rotate(0deg)}
+    100% {transform: rotate(5deg)}
+  }
+}
+
+.hw-new-details {
+  color: #fff;
+  .ant-typography {
+    color: #fff;
+  }
+  p {
+    margin: 12px 0;
+  }
+  h3.ant-typography {
+    text-align: center;
+    margin: 12px  0;
+  }
+  .ant-comment-content-author-name {
+    a {
+      color: #ffe58f;
+    }
+  }
+  .hw-news-details-arrow {
+    display: flex;
+    div {
+      flex: 1;
+    }
+    div:last-child {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  .ant-form-item-required {
+    color: #fff;
+  }
+}

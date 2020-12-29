@@ -8,6 +8,7 @@ require('@babel/register')({
 require("asset-require-hook")({
     extensions: ["svg", "jpeg", "jpg", "png", "gif"],
     name: '/static/media/[name].[ext]',
+    limit: 10000,
 });
 
 require('./server');

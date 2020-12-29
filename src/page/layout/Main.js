@@ -1,9 +1,8 @@
 import React from 'react';
-import {Layout, Menu} from "antd";
-import {Route, Link, withRouter} from "react-router-dom";
+import {Layout} from "antd";
+import {Route, withRouter} from "react-router-dom";
 import Head from "./Head";
 const {Content, Footer, Header } = Layout;
-
 
 function Child(props) {
     return (
@@ -27,16 +26,15 @@ function RouteWithSubRoutes(route) {
 class Main extends React.Component {
     constructor(props) {
         super(props);
-        this.state= {};
+        this.state = {};
     }
+
+
     render() {
         const {routes} = this.props;
         return (
             <div className='container'>
                 <Head/>
-                <Link to="/">首页</Link>
-                <Link to="/new_list">资讯</Link>
-                <Link to="/">首页</Link>
                 <Child>
                     {routes ? routes.map((route, i) => (
                         <RouteWithSubRoutes key={i} {...route} />

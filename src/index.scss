@@ -1,0 +1,80 @@
+@import '~antd/dist/antd.css';
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #3e3e3e;
+  background-image: url("./assets/images/img50.png");
+  background-repeat: repeat;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+// head
+ul,li {
+  list-style: none;
+}
+.music-box {
+  display: inline-block;
+  position: fixed;
+  right: 12px;
+  top: 12px;
+  z-index: 5;
+  img {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+  }
+
+  img.turn {
+    animation: turn 1s linear infinite;
+  }
+}
+
+
+.none {
+  display: none!important;
+}
+
+.hw-head {
+  .hw-menu {
+    margin-left: 12px;
+  }
+}
+
+.hw-menu-ul {
+  margin: 0;
+  padding: 0;
+  min-width: 150px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+}
+
+.hw-menu-li {
+  width: 100%;
+  line-height: 2em;
+  border-bottom: 1px dotted #ccc;
+  text-align: center;
+  padding: 12px 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  a {
+    color: #3e3e3e;
+  }
+}
+
+
+@keyframes turn{
+  0%{-webkit-transform:rotate(0deg);}
+  25%{-webkit-transform:rotate(90deg);}
+  50%{-webkit-transform:rotate(180deg);}
+  75%{-webkit-transform:rotate(270deg);}
+  100%{-webkit-transform:rotate(360deg);}
+}

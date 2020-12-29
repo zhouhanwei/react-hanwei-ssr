@@ -9,18 +9,52 @@ import { StaticRouter } from "react-router-dom";
 import Routers from '../src/webRouter/index';
 // import App from '../src/App'
 // import App2 from '../src/App2'
-import { Provider } from 'react-redux'
-import { getServerStore } from '../src/store'
+import { Provider } from 'react-redux';
+import { getServerStore } from '../src/store';
 
-const PORT = 8089
+// 获取天气预报
+import cheerio from "cheerio";
+const request = require('request');
+
+const PORT = 3000
 const app = express()
 
 app.use(express.static(path.resolve(__dirname, '../build'), {index:"root"}))
 app.use(express.static(path.resolve(__dirname, '../src')))
 
+app.use("/get_weather", function (req, res, next) {
+    console.log(23432)
+    // 获取天气预报
+    request('https://tianqi.moji.com/weather/china/jiangsu/jianhu-county', function (err, response, body) {
+        if (!err && response.statusCode == 200) {
+            const $ = cheerio.load(body);
+            //图标
+            let icon = $('.wea_weather span img').attr('src');
+            //天气
+            let weather = $('.wea_weather b').text();
+            //温度
+            let temperature = $('.wea_weather em').text();
+            //提示
+            let tips = $('.wea_tips em').text();
+            // address
+            let address = $('.search_default').text();
+            res.json({
+                code: 200,
+                data: {
+                    icon, weather,  temperature, tips, address
+                }
+            })
+        } else {
+            res.json({
+                code: "-1",
+                data: null,
+            })
+        }
+    })
+})
+
 //设置build以后的文件路径 项目上线用
 app.use((req, res, next) => {
-    console.log(req.url)
     const context = {}
     let store = getServerStore()
     let HTML = ReactDOMServer.renderToString(
@@ -45,6 +79,7 @@ app.use((req, res, next) => {
         )
     })
 })
+
 
 // ..
 app.listen(PORT, () => {
